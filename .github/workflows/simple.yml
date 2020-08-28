@@ -1,0 +1,30 @@
+# This is a basic workflow to help you get started with Actions
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  functional-tests-second-agent:
+    runs-on: [self-hosted, macOS]
+    needs: prep
+    steps:
+      - uses: actions/checkout@v2
+      - name: sleep
+        run: "sleep 20"
+      - name: pull test 2
+        id: pull-test-2
+        uses: veertuinc/anka-vm-github-action@v1.2.1-beta
+        with:
+          anka-template: "10.15.5"
+          anka-tag: "base:port-forward-22"
+          commands: |
+            env
+            ls -laht ./
+            ls -laht ../
+            pwd
+            echo \"HERE\" && \
+            echo \"THERE HERE WHERE\"
