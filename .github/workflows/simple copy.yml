@@ -1,0 +1,26 @@
+# This is a basic workflow to help you get started with Actions
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  primary-step:
+    runs-on: [self-hosted, macOS]
+    steps:
+      - uses: actions/checkout@v2
+      - name: build
+        uses: veertuinc/anka-vm-github-action@v1.2.1-beta
+        with:
+          skip-registry-pull: true
+          anka-template: "11.0.0-beta5-anka-develop"
+          commands: |
+            env
+            ls -laht ./
+            ls -laht ../
+            pwd
+            echo \"HERE\" && \
+            echo \"THERE HERE WHERE\"
