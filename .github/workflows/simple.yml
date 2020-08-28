@@ -8,16 +8,14 @@ on:
     branches: [ master ]
 
 jobs:
-  functional-tests-second-agent:
+  primary-step:
     runs-on: [self-hosted, macOS]
     steps:
       - uses: actions/checkout@v2
-      - name: sleep
-        run: "sleep 20"
-      - name: pull test 2
-        id: pull-test-2
+      - name: build
         uses: veertuinc/anka-vm-github-action@v1.2.1-beta
         with:
+          skip-registry-pull: true
           anka-template: "11.0.0-beta5-anka-develop"
           commands: |
             env
