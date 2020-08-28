@@ -18,8 +18,7 @@ jobs:
         id: pull-test-2
         uses: veertuinc/anka-vm-github-action@v1.2.1-beta
         with:
-          anka-template: "10.15.5"
-          anka-tag: "base:port-forward-22"
+          anka-template: "11.0.0-beta5-anka-develop"
           commands: |
             env
             ls -laht ./
