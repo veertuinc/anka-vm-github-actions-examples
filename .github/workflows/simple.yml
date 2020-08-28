@@ -10,7 +10,6 @@ on:
 jobs:
   functional-tests-second-agent:
     runs-on: [self-hosted, macOS]
-    needs: prep
     steps:
       - uses: actions/checkout@v2
       - name: sleep
