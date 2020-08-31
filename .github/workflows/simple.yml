@@ -8,7 +8,7 @@ on:
     branches: [ anka-develop ]
 
 jobs:
-  primary-step:
+  ephemeral:
     runs-on: [self-hosted, macOS]
     steps:
       - uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
         uses: veertuinc/anka-vm-github-action@v1.2.1-beta
         with:
           skip-registry-pull: true
-          anka-template: "10.15.6"
+          anka-template: "11.0.0-beta5-anka-develop"
           commands: |
             env
             ls -laht ./
