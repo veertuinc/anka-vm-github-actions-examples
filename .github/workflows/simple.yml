@@ -8,6 +8,7 @@ on:
     branches: [ anka-develop ]
 
 jobs:
+
   ephemeral:
     runs-on: [self-hosted, macOS]
     steps:
@@ -16,7 +17,7 @@ jobs:
         uses: veertuinc/anka-vm-github-action@v1.2.1-beta
         with:
           skip-registry-pull: true
-          anka-template: "11.0.0-beta5-anka-develop"
+          anka-template: "11.0.0"
           commands: |
             env
             ls -laht ./
@@ -24,3 +25,32 @@ jobs:
             pwd
             echo \"HERE\" && \
             echo \"THERE HERE WHERE\"
+      - name: test
+        uses: veertuinc/anka-vm-github-action@v1.2.1-beta
+        with:
+          skip-registry-pull: true
+          anka-template: "11.0.0"
+          commands: |
+            env
+            ls -laht ./
+            ls -laht ../
+            pwd
+            echo \"HERE\" && \
+            echo \"THERE HERE WHERE\"
+
+  # persistent:
+  #   runs-on: [self-hosted, macOS]
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: build
+  #       uses: veertuinc/anka-vm-github-action@v1.2.1-beta
+  #       with:
+  #         skip-registry-pull: true
+  #         anka-template: "11.0.0-beta5-anka-develop"
+  #         commands: |
+  #           env
+  #           ls -laht ./
+  #           ls -laht ../
+  #           pwd
+  #           echo \"HERE\" && \
+  #           echo \"THERE HERE WHERE\"
