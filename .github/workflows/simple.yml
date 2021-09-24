@@ -5,7 +5,7 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [ anka-develop ]
+    branches: [ main ]
 
 jobs:
 
@@ -14,10 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build
-        uses: veertuinc/anka-vm-github-action@v1.2.1-beta
+        uses: veertuinc/anka-vm-github-action@latest
         with:
           skip-registry-pull: true
-          anka-template: "11.0.0"
+          anka-template: "11.6"
           commands: |
             env
             ls -laht ./
@@ -26,10 +26,10 @@ jobs:
             echo \"HERE\" && \
             echo \"THERE HERE WHERE\"
       - name: test
-        uses: veertuinc/anka-vm-github-action@v1.2.1-beta
+        uses: veertuinc/anka-vm-github-action@latest
         with:
           skip-registry-pull: true
-          anka-template: "11.0.0"
+          anka-template: "11.6"
           commands: |
             env
             ls -laht ./
