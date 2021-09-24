@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build
-        uses: veertuinc/anka-vm-github-action@latest
+        uses: veertuinc/anka-vm-github-action@v1.3.2
         with:
           skip-registry-pull: true
           anka-template: "11.6"
@@ -26,7 +26,7 @@ jobs:
             echo \"HERE\" && \
             echo \"THERE HERE WHERE\"
       - name: test
-        uses: veertuinc/anka-vm-github-action@latest
+        uses: veertuinc/anka-vm-github-action@v1.3.2
         with:
           skip-registry-pull: true
           anka-template: "11.6"
