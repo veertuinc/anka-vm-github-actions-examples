@@ -16,37 +16,36 @@ jobs:
       - name: build
         uses: veertuinc/anka-vm-github-action@v1.3.2
         with:
-          skip-registry-pull: true
-          anka-template: "11.6"
+          anka-template: "11.6.0"
           commands: |
             env
             ls -laht ./
             ls -laht ../
             pwd
             echo \"HERE\" && \
-            echo \"THERE HERE WHERE\"
+            echo \"BUILD!\"
       - name: test
         uses: veertuinc/anka-vm-github-action@v1.3.2
         with:
           skip-registry-pull: true
-          anka-template: "11.6"
+          anka-template: "11.6.0"
           commands: |
             env
             ls -laht ./
             ls -laht ../
             pwd
             echo \"HERE\" && \
-            echo \"THERE HERE WHERE\"
+            echo \"TEST!\"
 
   # persistent:
   #   runs-on: [self-hosted, macOS]
   #   steps:
   #     - uses: actions/checkout@v2
   #     - name: build
-  #       uses: veertuinc/anka-vm-github-action@v1.2.1-beta
+  #       uses: veertuinc/anka-vm-github-action@v1.3.2
   #       with:
   #         skip-registry-pull: true
-  #         anka-template: "11.0.0-beta5-anka-develop"
+  #         anka-template: "11.6.0"
   #         commands: |
   #           env
   #           ls -laht ./
