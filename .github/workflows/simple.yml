@@ -18,7 +18,7 @@ jobs:
         id: build
         uses: veertuinc/anka-vm-github-action@v1.3.2
         with:
-          anka-vm-template-name: "12.2.0"
+          anka-vm-template-name: "12.3.1"
           vm-commands: |
             env
             ls -laht ./
@@ -30,7 +30,7 @@ jobs:
         uses: veertuinc/anka-vm-github-action@v1.3.2
         with:
           skip-registry-pull: true
-          anka-vm-template-name: "12.2.0"
+          anka-vm-template-name: "12.3.1"
           vm-commands: |
             env
             ls -laht ./
